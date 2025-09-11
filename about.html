@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>About Monster Survivors | gameflarehub.online</title>
+    <meta name="description" content="Learn about Monster Survivors on gameflarehub.online: our mission, features, and how we build fast, accessible browser games." />
+    <link rel="canonical" href="https://gameflarehub.online/about" />
+    <link rel="alternate" hreflang="en" href="https://gameflarehub.online/about" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="gameflarehub.online" />
+    <meta property="og:title" content="About Monster Survivors" />
+    <meta property="og:description" content="Discover the vision behind Monster Survivors and our commitment to instant-play fun." />
+    <meta property="og:url" content="https://gameflarehub.online/about" />
+    <meta property="og:image" content="https://gameflarehub.online/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About Monster Survivors" />
+    <meta name="twitter:description" content="Learn about game design goals and what makes Monster Survivors replayable." />
+    <meta name="twitter:image" content="https://gameflarehub.online/og-image.jpg" />
+
+    <!-- Favicon (optional placeholders) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              iosBlue: {
+                DEFAULT: '#007aff',
+                600: '#007aff',
+                700: '#0066d6',
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-iosBlue/20 selection:text-slate-900">
+    <header class="bg-gradient-to-b from-slate-50 to-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+        <a href="/" class="inline-flex items-center gap-2">
+          <span class="inline-block h-9 w-9 rounded-xl bg-iosBlue/10 ring-1 ring-iosBlue/20 flex items-center justify-center">
+            <span class="h-5 w-5 rounded bg-iosBlue"></span>
+          </span>
+          <span class="text-xl font-semibold tracking-tight">gameflarehub<span class="text-iosBlue">.online</span></span>
+        </a>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="/" class="text-slate-700 hover:text-iosBlue">Home</a>
+          <a href="/about" class="text-slate-900 font-medium">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(60rem_60rem_at_50%_-10%,rgba(0,122,255,0.08),transparent_60%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">About Monster Survivors</h1>
+          <p class="mt-3 text-lg text-slate-600 max-w-2xl">Our goal is simple: instant, high‑polish browser fun—no downloads, just play.</p>
+        </div>
+      </section>
+
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-12">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900">Our Mission</h2>
+          <p class="mt-3 text-slate-700 leading-relaxed">At gameflarehub.online, we curate and build fast, accessible web games you can play anywhere. Monster Survivors embraces short sessions, readable visuals, and satisfying meta‑progression that keeps every run fresh.</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900">Design Pillars</h2>
+          <ul class="mt-3 grid gap-3 sm:grid-cols-2 text-slate-700">
+            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-iosBlue"></span><span>Instant play: loads fast and works great on mobile and desktop</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-iosBlue"></span><span>Depth through upgrades and synergies—not complex inputs</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-iosBlue"></span><span>Readable combat with crisp feedback and minimal clutter</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-iosBlue"></span><span>Short sessions with strong replay value</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900">Contact</h2>
+          <p class="mt-3 text-slate-700">Questions, suggestions, or partnerships? Reach us at <a href="mailto:hello@gameflarehub.online" class="text-iosBlue hover:underline">hello@gameflarehub.online</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white/80 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-600">
+        <p>© <span id="year"></span> gameflarehub.online. All rights reserved.</p>
+        <nav class="flex items-center gap-4">
+          <a href="/" class="hover:text-iosBlue">Home</a>
+          <a href="/about" class="hover:text-iosBlue">About</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+
