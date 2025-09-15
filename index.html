@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Monster Survivors — Play Free in Your Browser | gameflarehub.online</title>
+    <meta name="description" content="Play Monster Survivors free in your browser. Dodge, upgrade, and outlast swarms of monsters. No download, instant play, mobile-friendly, and lightning fast." />
+    <link rel="canonical" href="https://gameflarehub.online/" />
+    <link rel="alternate" hreflang="en" href="https://gameflarehub.online/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="gameflarehub.online" />
+    <meta property="og:title" content="Monster Survivors — Play Free in Your Browser" />
+    <meta property="og:description" content="Survive relentless waves, stack wild upgrades, and become unstoppable. Play instantly." />
+    <meta property="og:url" content="https://gameflarehub.online/" />
+    <meta property="og:image" content="https://gameflarehub.online/og-image.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Monster Survivors — Play Free in Your Browser" />
+    <meta name="twitter:description" content="Dodge, upgrade, and outlast swarms of monsters. Instant play on any device." />
+    <meta name="twitter:image" content="https://gameflarehub.online/og-image.jpg" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              iosBlue: { DEFAULT: '#007aff', 600: '#007aff', 700: '#0066d6' },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-iosBlue/20 selection:text-slate-900">
+    <header class="bg-gradient-to-b from-slate-50 to-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+        <a href="/" class="inline-flex items-center gap-2">
+          <span class="inline-block h-9 w-9 rounded-xl bg-iosBlue/10 ring-1 ring-iosBlue/20 flex items-center justify-center">
+            <span class="h-5 w-5 rounded bg-iosBlue"></span>
+          </span>
+          <span class="text-xl font-semibold tracking-tight">gameflarehub<span class="text-iosBlue">.online</span></span>
+        </a>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="/" class="text-slate-900 font-medium">Home</a>
+          <a href="/about.html" class="text-slate-700 hover:text-iosBlue">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(60rem_60rem_at_50%_-10%,rgba(0,122,255,0.08),transparent_60%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">Monster Survivors</h1>
+          <p class="mt-3 text-lg text-slate-600 max-w-2xl">Dodge. Upgrade. Outlast. Play instantly in your browser—no downloads needed.</p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900">Browse Categories</h2>
+          <a href="/category.html?cat=all" class="text-sm text-iosBlue hover:underline">View all</a>
+        </div>
+        <div id="category-list" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 mb-4">Featured Games</h2>
+        <div id="featured-list" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white/80 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-600">
+        <p>© <span id="year"></span> gameflarehub.online. All rights reserved.</p>
+        <nav class="flex items-center gap-4">
+          <a href="/" class="hover:text-iosBlue">Home</a>
+          <a href="/about.html" class="hover:text-iosBlue">About</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      async function loadGames() {
+        try {
+          const res = await fetch('./data/games.json', { cache: 'no-store' });
+          const games = await res.json();
+
+          const byCategory = games.reduce((map, g) => {
+            const key = g.category || 'other';
+            (map[key] ||= []).push(g);
+            return map;
+          }, {});
+
+          const categoryList = document.getElementById('category-list');
+          categoryList.innerHTML = Object.keys(byCategory).slice(0, 6).map(cat => `
+            <a href="/category.html?cat=${encodeURIComponent(cat)}" class="block rounded-xl border border-slate-200 p-4 hover:shadow-sm">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="font-semibold text-slate-900">${cat}</h3>
+                  <p class="text-xs text-slate-500">${byCategory[cat].length} games</p>
+                </div>
+                <span class="text-iosBlue">→</span>
+              </div>
+            </a>
+          `).join('');
+
+          const featured = games.filter(g => g.featured).slice(0, 6);
+          const featuredList = document.getElementById('featured-list');
+          featuredList.innerHTML = featured.map(g => cardHtml(g)).join('');
+        } catch (e) {
+          console.error(e);
+          const categoryList = document.getElementById('category-list');
+          const featuredList = document.getElementById('featured-list');
+          if (categoryList) categoryList.innerHTML = '<div class="text-sm text-red-600">Failed to load games. Please check data/games.json path.</div>';
+          if (featuredList) featuredList.innerHTML = '';
+        }
+      }
+
+      function cardHtml(g) {
+        return `
+          <a href="/game.html?slug=${encodeURIComponent(g.slug)}" class="block rounded-xl overflow-hidden border border-slate-200 hover:shadow-sm">
+            <div class="aspect-video bg-slate-100">
+              ${g.thumbnail ? `<img src="${g.thumbnail}" alt="${g.title}" class="w-full h-full object-cover">` : ''}
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-slate-900">${g.title}</h3>
+              <p class="text-xs text-slate-500 mt-1">${g.category}</p>
+            </div>
+          </a>
+        `;
+      }
+
+      loadGames();
+    </script>
+  </body>
+</html>
+
+
+
