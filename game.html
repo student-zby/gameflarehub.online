@@ -77,6 +77,12 @@
       </div>
     </footer>
 
+    <button id="dbg-toggle" title="Debug" class="fixed bottom-4 right-4 z-50 rounded-full bg-iosBlue text-white px-3 py-2 text-sm shadow hover:bg-iosBlue/90">Debug</button>
+    <div id="dbg-panel" class="hidden fixed bottom-16 right-4 z-50 w-80 max-h-72 overflow-auto rounded-lg border border-slate-200 bg-white shadow">
+      <div class="px-3 py-2 border-b text-sm font-semibold">games.json fetch attempts</div>
+      <div id="dbg-log" class="p-3 text-xs text-slate-700 space-y-1"></div>
+    </div>
+
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -112,12 +118,23 @@
           </a>`;
       }
 
+      async function fetchGamesJson() {
+        const tryPaths = ['data/games.json', './data/games.json', '/data/games.json', new URL('data/games.json', location.href).toString()];
+        const log = (msg) => {
+          const el = document.getElementById('dbg-log');
+          if (!el) return; const line = document.createElement('div'); line.textContent = msg; el.appendChild(line);
+        };
+        for (const p of tryPaths) {
+          try { const res = await fetch(p, { cache: 'no-store' }); log(`[TRY] ${p} -> ${res.status}`); if (res.ok) return await res.json(); } catch (e) { log(`[ERR ] ${p} -> ${e.message}`); }
+        }
+        throw new Error('games.json not found');
+      }
+
       async function load() {
         const slug = getParam('slug');
         if (!slug) return;
         try {
-          const res = await fetch('./data/games.json', { cache: 'no-store' });
-          const games = await res.json();
+          const games = await fetchGamesJson();
           const game = games.find(g => g.slug === slug);
           if (!game) return;
 
@@ -142,6 +159,18 @@
       }
 
       load();
+
+      // Debug UI
+      (function setupDebug(){
+        const btn = document.getElementById('dbg-toggle');
+        const panel = document.getElementById('dbg-panel');
+        const log = document.getElementById('dbg-log');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', () => {
+          panel.classList.toggle('hidden');
+          if (!panel.classList.contains('hidden')) log.innerHTML = '';
+        });
+      })();
     </script>
   </body>
 </html>
