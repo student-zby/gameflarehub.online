@@ -5,19 +5,9 @@
     "category": "Action",
     "iframeUrl": "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
     "description": "Dodge, upgrade, and outlast swarms of monsters in your browser.",
-    "thumbnail": "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/thumb.jpg",
+    "thumbnail": "https://gameflarehub.online/assets/monster-survivors.jpg",
     "tags": ["survival", "roguelite", "action"],
     "featured": true
   },
-  {
-    "slug": "2048-classic",
-    "title": "2048 Classic",
-    "category": "Puzzle",
-    "iframeUrl": "https://cloud.onlinegames.io/games/2021/construct3/2048/index.html",
-    "description": "Slide tiles and merge numbers to reach 2048.",
-    "thumbnail": "https://cloud.onlinegames.io/games/2021/construct3/2048/thumb.jpg",
-    "tags": ["puzzle", "casual"],
-    "featured": true
-  }
-]
+
 
