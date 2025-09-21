@@ -8,5 +8,15 @@
     "thumbnail": "https://gameflarehub.online/assets/monster-survivors.png",
     "tags": ["survival", "roguelite", "action"],
     "featured": true
+  },
+   {
+    "slug": "classic-game",
+    "title": "Classic Game",
+    "category": "Arcade",
+    "iframeUrl": "https://html-classic.itch.zone/html/14982516/index.html",
+    "description": "A classic browser game for instant play.",
+    "thumbnail": "https://gameflarehub.online/assets/classic-game.png",
+    "tags": ["classic", "arcade"],
+    "featured": true
   }
 ]
